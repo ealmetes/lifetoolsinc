@@ -1,0 +1,51 @@
+﻿@using lifetoolsinc.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+
+}
+
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal m-t-20", role = "form" }))
+            {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+            <div class="form-group" style="margin:5px">
+                <div class="col-xs-12">
+                    <input class="form-control text-dark" type="text" required="" id="Email" name="Email" placeholder="Username">
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin:5px">
+                <div class="col-xs-12">
+                    <input class="form-control text-dark" type="password" required="" id="Password" name="Password" placeholder="Password">
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin:5px">
+                <div class="col-xs-12">
+                    <div class="text-muted">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                </div>
+            </div>
+
+            <div class="form-group text-center m-t-5" style="margin:5px">
+                <div class="col-xs-12">
+                    <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button>
+                </div>
+            </div>
+     
+            <hr />
+
+
+            }
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+

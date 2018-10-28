@@ -1,0 +1,98 @@
+﻿@model IEnumerable<lifetoolsinc.Models.CandidatesResults>
+@using lifetoolsinc.Models
+
+@{
+    ViewBag.Title = "D Page";
+    //Layout = "~/Views/Shared/_Layoutsml.cshtml";
+}
+
+
+
+
+<div class="container">
+
+
+    <div class="page-content-wrappe1">
+
+        <div class="container">
+   
+
+
+        </div><!-- container -->
+
+    </div> <!-- Page content Wrapper -->
+
+</div>
+
+
+
+<div class="container hidden">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <h4 class="m-t-0">Result Graph</h4>
+
+
+                        <div class="col-md-4">
+                            <ul class="list-inline m-t-2 text-center" style="margin-left:15px">
+                                <li>Score:</li>
+                                <li>
+                                    <i class="mdi mdi-arrow-up-bold-circle-outline text-primary"></i>
+                                    <h4 class=""><b>D</b></h4>
+                                    <p class="text-muted m-b-0">@Model.OrderBy(o => o.classid).Where(d => d.classid == 1).Sum(s => s.value).ToString()</p>
+                                </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li>
+                                    <i class="mdi mdi-arrow-down-bold-circle-outline text-danger"></i>
+                                    <h4 class=""><b>I</b></h4>
+                                    <p class="text-muted m-b-0">@Model.OrderBy(o => o.classid).Where(d => d.classid == 2).Sum(s => s.value).ToString()</p>
+                                </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li>
+                                    <i class="mdi mdi-arrow-down-bold-circle-outline text-danger"></i>
+                                    <h4 class=""><b>S</b></h4>
+                                    <p class="text-muted m-b-0">@Model.OrderBy(o => o.classid).Where(d => d.classid == 3).Sum(s => s.value).ToString()</p>
+                                </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li>
+                                    <i class="mdi mdi-arrow-down-bold-circle-outline text-danger"></i>
+                                    <h4 class=""><b>C</b></h4>
+                                    <p class="text-muted m-b-0">@Model.OrderBy(o => o.classid).Where(d => d.classid == 4).Sum(s => s.value).ToString()</p>
+                                </li>
+                            </ul>
+                            <div class="col-sm-12" id="morris-bar-example" style="height: 500px"></div>
+                        </div>
+                        <div class="col-md-6" style="padding:20px">
+                            <div class="col-md-11 pull-right">
+                                <h4>Interprating The Graph</h4>
+                                <span style="margin-top:-20px">@(new HtmlString(@Contents.attributes.Where(d => d.name == "Interpreting Graph").Select(s => s.text).FirstOrDefault()))</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+

@@ -1,0 +1,43 @@
+﻿@model lifetoolsinc.Models.Attributes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Attributes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pageid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pageid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassCategoryid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassCategoryid)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Cancel", "Index")
+</p>

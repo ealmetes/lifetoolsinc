@@ -1,0 +1,89 @@
+﻿@model IEnumerable<lifetoolsinc.Models.AttClasses>
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<div class="panel-body bg-white">
+    <p>
+        @*@Html.ActionLink("Buy Codes", "Create",new { @class="btn btn-info"})*@
+
+    </p>
+    <div class="col-xs-12 pull-right">
+        <div class="pull-left">
+            <h3 class="text-warning">Attribute Classes</h3>
+
+        </div>
+        <div class="pull-right">
+            <ul class="social-links list-inline pull-right" style="height:15px">
+                <li>
+                    <a href="@Url.Action("Create", "AttClasses")" title="Add Attribute Class" data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Details"><i class="fa fa-plus"></i></a>
+
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- /.modal -->
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Text
+            </th>
+            <th>
+                Class Category ID
+            </th>
+            <th>
+                Score
+            </th>
+            <th>
+                Score Level
+            </th>
+            <th>
+                Sub-Score Level
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassCategoryID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScoreLevel)
+                </td>
+       
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <ul class="social-links list-inline" style="height:15px">
+        <li>
+            <a href="@Url.Action("Create", "AttClasses")" title="Add Attribute" data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Details"><i class="fa fa-plus"></i></a>
+
+        </li>
+
+    </ul>
+
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+

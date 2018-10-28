@@ -1,0 +1,177 @@
+﻿@model lifetoolsinc.Models.Accounts
+@using lifetoolsinc.Models
+@{
+    ViewBag.Title = "Assessment";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+   
+            @foreach (var page in Model.pages)
+            {
+
+                        <div class="col-sm-12">
+                            <div class="col-sm-12 text-center">
+                                <h4 class="m-t-0">Assessment</h4>
+                         
+                            </div>
+                    @using (Html.BeginForm("Index", "Assessment",  new { @accesskey = @Model.key, @businessid=Model.businessid, @email = Model.email, id="ScoreForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="panel panel-primary">
+                            <div class="panel-title" style="padding:20px">
+                                <small class="text-dark">
+                                    <i>Drag a number in front of each word. The word representing you most gets 4. The word representing you least gets 1. Rank ALL words.</i>
+                                </small>
+                                <div class="col-lg-12 text-center" style="margin-top:20px">
+                                    <ul class="social-links list-inline m-b-10">
+                                        <li>
+                                            <img src="~/Content/Img/orderedList1.png" draggable="true" ondragstart="drag(event)" id="drag1" value="1" />
+                                        </li>
+                                        <li>
+                                            <img src="~/Content/Img/orderedList2.png" draggable="true" ondragstart="drag(event)" id="drag2" value="2" />
+                                        </li>
+                                        <li>
+                                            <img src="~/Content/Img/orderedList3.png" draggable="true" ondragstart="drag(event)" id="drag3" value="3" />
+                                        </li>
+                                        <li>
+                                            <img src="~/Content/Img/orderedList4.png" draggable="true" ondragstart="drag(event)" id="drag4" value="4" />
+                                        </li>
+
+                                    </ul>
+                                  
+                                </div>
+                                </div>
+                            <div class="panel-body">
+
+                                <div class="col-lg-12">
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var Q in Model.choices)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Q.Text
+                                                    </td>
+                                                    <td>
+
+                                                        <div id="choice1" name="choice1" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="leaveDrop(event)" class="bg-success pull-right text-center" style="height:40px;width:45px">
+                                                            <input type="hidden" id="q" name="q" value="@Q.id" />
+                                                            <input type="hidden" id="a" name="a" value="0" required />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            }
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+
+                            </div>
+                            <div class="panel-footer">
+                                <div class="col-lg-12 m-t-20">
+                             
+
+                                        <div class="form-horizontal">
+
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                            <div class="form-group">
+                                                <div id="goNext" class="col-md-offset-2 col-md-10" style="display:none">
+                                                    <ul class="pager">
+                                                        <li class="next">
+                                                            <button type="submit" id="Subbtn" class="hidden">Next <i class="ion ion-android-send"></i></button>
+                                                            <a class="btn pull-right btn-warning" href="javascript:document.getElementById('Subbtn').click()">Next <i class="ion ion-arrow-right-a"></i></a>
+                                                            <a id="btnRefresh" class="btn btn-danger pull-right m-r-10">Clear <i class="ion ion-refresh"></i></a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                                @*<div id="goReset" class="col-md-offset-2 col-md-10">
+                                   
+                                                </div>*@
+
+                                            </div>
+                                        </div>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                                
+
+                            </div>
+                break;
+
+
+            }
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+@section scripts{
+
+<script src="~/Scripts/infiniteScroll.js"></script>
+
+<script type="text/javascript">
+   
+    $('#btnRefresh').click(function () {
+        location.reload();
+        //$('choicerefresh').insert($('choice1').descendants()[0]);
+    });
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+    function leaveDrop(ev) {
+        ev.allowDrop();
+    }
+    var choices=0;
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        var v = document.getElementById(data).id;
+        var inputs = ev.target.getElementsByTagName('input');
+        inputs[1].value = v;
+        ev.target.allowDrop = false;
+        document.getElementById(data).draggable = false;
+            choices += 1;
+            var n = document.getElementById("goNext");
+            //var r = document.getElementById("goReset");
+        if (choices == 4) {
+            n.style.display = "block";
+            //r.style.display = "none";
+        } else {
+            n.style.display = "none";
+        }
+    }
+
+</script>
+}
+
+

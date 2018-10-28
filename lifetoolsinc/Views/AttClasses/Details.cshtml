@@ -1,0 +1,53 @@
+﻿@model lifetoolsinc.Models.AttClasses
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Attribute Classes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            Class Category ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassCategoryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            Score Level
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoreLevel)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Cancel", "Index")
+</p>

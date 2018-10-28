@@ -1,0 +1,41 @@
+﻿@model lifetoolsinc.Models.Profiles
+@using lifetoolsinc.Models
+
+@{
+
+
+Layout = "~/Views/Shared/_Layoutblank.cshtml";
+}
+
+<div class="col-lg-12 text-center m-b-15">
+    <h3 class="text-primary"><strong>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</strong></h3>
+    <h4 class="text-muted">Welcome to your Personal Nature Behavior Style Assessment Tool</h4>
+  @*<a>@Accounts.attributes.Count().ToString()</a>*@  
+
+</div>
+
+<div class="container">
+
+<div class="row">
+    <hr />
+    <div class="user-info  text-center">
+
+        <i class="mdi mdi-alert-circle mdi-36px text-danger "></i>
+        <p class="text-warning"><strong>Most complete profile using a laptop or desktop commputer.</strong> </p>
+
+    </div>
+
+    <hr />
+    <div class="text-center">
+        @if (Accounts.attributes.Count > 0)
+        {
+            <a href="@Url.Action("readfirst","Assessment",new {accesskey = @Accounts.attributes[0].key })" class="btn btn-success">Start Assessment</a>
+        }
+        else
+        {
+            <a href="@Url.Action("readfirst","Assessment",new { accesskey = 1 })" class="btn btn-success">Start Assessment</a>
+        }
+
+    </div>
+</div>
+</div>

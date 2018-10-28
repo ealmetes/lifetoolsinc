@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layoutblank.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h3>Another to proceed to the assessment you most purchase Access Code. Please click on Buy Code to purchase Access Code.</h3>
+        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">Buy Code</button>
+    </div>
+ 
+</div>
+@using (Html.BeginForm("Checkout", "Profiles"))
+{
+
+    <div id="myModal" class="modal modal-full fade panel-primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <!-- /.modal-content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal" aria-hidden="true">×</a>
+                    <h4 class="text-warning"><span><i class="fa fa-shopping-basket"></i>Shopping Cart</span></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>You are puchasing one time Access Code.</h4>
+                    </div>
+                    <div class="form-group m-t-20">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <label class="text-muted">Enter Promo Code:</label>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="col-md-6 col-lg-offset-3 text-center">
+                                    <input type="text" id="promocode" name="promocode" class="form-control text-dark" />
+                                    <code>Only if apply</code>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-sm-12  text-center">
+                        <input type="submit" value="Chekout" class="btn btn-lg btn-success" />
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div><!-- /.modal-dialog -->
+    </div>
+   
+    <!-- /.modal-content -->
+}
+
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- CSS Includes -->
+<link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript">
+            $(document).ready(function() {
+                $("#myModal").dialog({
+                    modal: true
+                });
+            });
+</script>

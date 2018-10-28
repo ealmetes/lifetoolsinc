@@ -1,0 +1,155 @@
+﻿@model lifetoolsinc.Models.Accounts
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<div class="panel-body bg-white">
+    <p>
+        @*@Html.ActionLink("Buy Codes", "Create",new { @class="btn btn-info"})*@
+
+    </p>
+    <div class="container">
+        <div class="row">
+            <div>
+                <h4 class="text-warning">Send Access Code To Candidate</h4>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="col-lg-12">
+                    <div class="form-horizontal">
+
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @*@Html.HiddenFor(model => model.id)*@
+
+                        <div class="form-group">
+
+
+                            <div class="col-md-12 hidden">
+                                <h4>Access Key:</h4>
+                                <h4>
+                                    <a href="#">@Model.key</a>
+                                </h4>
+                              
+                                @Html.HiddenFor(model => model.key, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.key, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                  
+                            <div class="col-md-12">
+                                <h5>Candidate Information:</h5>
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control text-dark",@placeholder="Email", @type = "email" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.candidate, new { htmlAttributes = new { @class = "form-control text-dark", @placeholder = "Full Name" } })
+                                @Html.ValidationMessageFor(model => model.candidate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control text-dark", @placeholder = "Phone Number (888) 888-88888" } })
+                                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.statusid, new { htmlAttributes = new { @class = "form-control text-dark" } })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.businessid, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.businessid, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.datecreated, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.datecreated, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @*@Html.HiddenFor(model => model.dateassigned, new { htmlAttributes = new { @class = "form-control text-dark" } })*@
+                                <input type="hidden" id="dateassigned" name="dateassigned" value="@DateTime.Now"/>
+                                @Html.ValidationMessageFor(model => model.dateassigned, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.dateexecuted, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.dateexecuted, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.unit, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.unit, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.promocodeid, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                                @Html.ValidationMessageFor(model => model.promocodeid, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="submit" value="Send" class="btn btn-primary pull-right" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+<div>
+    @Html.ActionLink("Cancel", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

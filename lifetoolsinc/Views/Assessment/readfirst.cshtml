@@ -1,0 +1,43 @@
+﻿@model lifetoolsinc.Models.Accounts
+@{
+    ViewBag.Title = "Read First";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<div class="container1">
+
+    <div class="row1">
+  
+        <div class="col-md-12" style="text-align:justify">
+           <p> The following profile identifies various behavior traits. Specific traits indicate how individuals most comfortably interact in various environments and situations. Allow approximately 10-15 minutes to complete the profile.</p>
+            <p></p>
+            <p>Four different words/situations will appear on the screen. Above these you will see numbers (1, 2, 3, 4). Rank each word/situation as it best describes you by dragging the appropriate number and placing it in front of the corresponding word/situation. The number 4 represents the choice that is MOST like you and the number 1 represents the choice that is LEAST like you (the bigger number equals a bigger part of you, the smallest number equals the smallest part of you). Rank all four items on the page using all four numbers. There may be a page where you want to apply the same rank to multiple words/situations - this is not possible. Simply assign each a different number before you continue.</p>
+        </div>
+   
+        <div class="col-md-12 text-center">
+            <hr />
+            <a href="@Url.Action("Index","Assessment",new { @accesskey=@Model.key})" class="btn btn-success btn-md">Start Asssessment</a>
+        </div>
+            
+        </div>
+
+
+</div>
+
+@section scripts{
+
+    <script src="~/Scripts/infiniteScroll.js"></script>
+
+    <script>
+
+
+
+
+
+
+    </script>
+
+
+}
+
+

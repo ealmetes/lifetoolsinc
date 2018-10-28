@@ -1,0 +1,85 @@
+﻿@model IEnumerable<lifetoolsinc.Models.Answers>
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.attribute)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.value)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.classid)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.datetaken)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.orguid)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.pageid)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.attribute)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.classid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.datetaken)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.orguid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.pageid)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.accesskey }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.accesskey }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.accesskey })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    
+
+    </div>
+
+
+</div>
+

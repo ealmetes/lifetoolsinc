@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layoutblank.cshtml";
+}
+
+<div class="row">
+    <div class="container text-center">
+        <p> The answer to understanding behavior, communication and connecting...</p>
+
+        <P>...at work, home and play.</P>
+    </div>
+
+    <div id="sidebar-menu">
+        <ul>
+            <li class="has_sub has-success">
+                <a href="javascript:void(0);" class="waves-effect bg-success"><i class="mdi mdi-account"></i> <span> Existing Member Sign In </span> <span class="pull-right"><i class="mdi mdi-key"></i></span></a>
+                <ul class="list-unstyled">
+                    @Html.Partial("_Login")
+                </ul>
+            </li>
+
+            <li class="has_sub has-warning">
+                <a href="javascript:void(0);" class="waves-effect bg-warning"><i class="mdi mdi-account-multiple"></i> <span> Create Business Account </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
+                <ul class="list-unstyled">
+                    @Html.Partial("_RegisterBusiness")
+                </ul>
+            </li>
+
+            <li class="has_sub text-primary">
+                <a href="javascript:void(0);" class="waves-effect bg-primary"><i class="mdi mdi-account-plus"></i> <span> Create Personal Account </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
+                <ul class="list-unstyled">
+                    @Html.Partial("_RegisterPersonal")
+                </ul>
+            </li>
+
+
+        </ul>
+    </div>
+
+
+</div>

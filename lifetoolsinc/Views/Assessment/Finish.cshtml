@@ -1,0 +1,31 @@
+﻿@model lifetoolsinc.Models.Accounts
+@{
+    ViewBag.Title = "Finish";
+    Layout = "~/Views/Shared/_Layoutblank.cshtml";
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <i class="icon-main mdi mdi-check-circle-outline text-success"></i>
+            <h2>You have completed the assessment!</h2>
+            <hr />
+        </div>
+        @if (Model != null)
+        {
+            if (Model.candidate != null)
+            {
+                <div class="text-center">
+                    <a href="@Url.Action("Index", "CandidatesResults", new { accesskey = Model.key })" class="btn btn-success"><i class="fa fa-folder-open"></i> View Your Result</a>
+                </div>
+            }
+        }
+     
+        <hr />
+    </div>
+
+</div>
+

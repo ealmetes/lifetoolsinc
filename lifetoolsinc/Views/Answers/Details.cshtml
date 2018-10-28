@@ -1,0 +1,83 @@
+﻿@model lifetoolsinc.Models.Answers
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Answers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.attribute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.attribute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.classid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.classid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datetaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datetaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orguid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orguid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pageid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pageid)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.accesskey }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

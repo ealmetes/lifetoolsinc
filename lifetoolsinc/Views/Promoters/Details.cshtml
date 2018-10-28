@@ -1,0 +1,67 @@
+﻿@model lifetoolsinc.Models.Promoters
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Promo Code</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.promoter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promoter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expiredate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expiredate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Cancel", "Index")
+</p>

@@ -1,0 +1,234 @@
+﻿@model IEnumerable<lifetoolsinc.Models.CandidatesResults>
+@using lifetoolsinc.Models
+
+@{
+    ViewBag.Title = "Graph Page";
+    //Layout = "~/Views/Shared/_LayoutResult.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="row">
+            @* THE GRAPH*@
+                <div class="col-sm-12">
+                    <div class="page">
+                        <div class="page-title text-center">
+                            <h3> Nature Behavior Styles Graph</h3>
+                          
+                
+                        </div>
+                        <div class="panel-body user-card" style="padding:50px">
+                            <div class="media-main pull-left">
+                                <a class="pull-left" href="#">
+                                    <img class="thumb-lg img-responsive" src="~/Content/Img/lifetools.png" alt="" style="height:50px">
+                                </a>
+                            </div>
+                            <div class="media-main pull-right">
+
+                                <div class="info">
+                                    <h4>@CandidatesResults.accounts[0].candidate</h4>
+                                    <p class="text-muted">@CandidatesResults.accounts[0].email</p>
+                                </div>
+                            </div>
+                            <div class="clearfix m-t-40" style="padding:10px">
+                                <hr />
+                        
+                                <div class="col-md-12">
+                                    <ul class="list-inline m-t-2 text-center" style="margin-left:-40px;margin-right:-2px">
+                                        <li>Score:</li>
+                                        <li>                            
+                                            <h4 class=""><b>D</b></h4>
+                                           
+                                            @if (CandidatesResults.scoredetails[0].color == "Red")
+                                            {                                                
+                                                <h3 class="m-b-0 text-danger">@CandidatesResults.scoredetails[0].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[0].color == "Yellow")
+                                            {                                                
+                                                <h3 class="m-b-0 text-warning">@CandidatesResults.scoredetails[0].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[0].color == "Green")
+                                            {
+                                                <h3 class="m-b-0 text-success">@CandidatesResults.scoredetails[0].score</h3> 
+                                            }
+                                        </li>
+                                        <li></li>
+        
+                                        <li>
+                              
+                                            <h4 class=""><b>I</b></h4>
+                                            @if (CandidatesResults.scoredetails[1].color == "Red")
+                                            {
+                                                <h3 class="m-b-0 text-danger">@CandidatesResults.scoredetails[1].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[1].color == "Yellow")
+                                            {
+                                                <h3 class="m-b-0 text-warning">@CandidatesResults.scoredetails[1].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[1].color == "Green")
+                                            {
+                                                <h3 class="m-b-0 text-success">@CandidatesResults.scoredetails[1].score</h3>
+                                            }
+                                        </li>
+                                        <li></li>
+                                          
+                                        <li>
+                                 
+                                            <h4 class=""><b>S</b></h4>
+                                            @if (CandidatesResults.scoredetails[2].color == "Red")
+                                            {
+                                                <h3 class="m-b-0 text-danger">@CandidatesResults.scoredetails[2].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[2].color == "Yellow")
+                                            {
+                                                <h3 class="m-b-0 text-warning">@CandidatesResults.scoredetails[2].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[2].color == "Green")
+                                            {
+                                                <h3 class="m-b-0 text-success">@CandidatesResults.scoredetails[2].score</h3>
+                                            }
+                                        </li>
+                                        <li></li>
+                       
+                                        <li>
+                                
+                                            <h4 class=""><b>C</b></h4>
+                   
+                                            @if (CandidatesResults.scoredetails[3].color == "Red")
+                                            {
+                                                <h3 class="m-b-0 text-danger">@CandidatesResults.scoredetails[3].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[3].color == "Yellow")
+                                            {
+                                                <h3 class="m-b-0 text-warning ">@CandidatesResults.scoredetails[3].score</h3>
+                                            }
+                                            @if (CandidatesResults.scoredetails[3].color == "Green")
+                                            {
+                                                <h3 class="text-muted m-b-0 text-success">@CandidatesResults.scoredetails[3].score</h3>
+                                            }
+                                        </li>
+                                    </ul>
+      
+                                       
+                                        @*<div class="col-sm-12 hidden" id="morris-bar-example" style="height:200px"></div>*@
+                                    </div>
+                           
+                                <div class="col-lg-6" style="height:auto">
+                                    <div class="col-lg-12">
+                                        <div class="">
+                                            <div class="panel-body">
+                                                <div id="columnchart_values" style="width:600px; height:auto;"></div>
+                                                @*<div id="columnchart_values2" style="width:60px; height:auto;"></div>*@
+                                                @*<canvas id="bar" height="600"></canvas>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+                                <div class="col-md-6 m-t-40" style="height:auto;">
+                                    <div class="col-lg-12">
+                                        <div class="">
+                                            <div class="panel-body">
+                                                @*<h4 class="m-t-0 m-b-30">D</h4>*@
+                                                @*<canvas id="pie" height="600"></canvas>*@
+                                                <div id="piechart" style="width: 560px;height:500px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="col-md-12 m-t-40">
+                                    <div class="col-md-12 m-t-40">
+                                        <h4>Interprating The Graph</h4>
+                                        <span style="margin-top:-20px">@(new HtmlString(CandidatesResults.contents.Where(d => d.name == "Interpreting Graph").Select(s => s.text).FirstOrDefault()))</span>
+                                    
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                          
+                            <hr />
+                            <ul class="social-links list-inline m-b-40 pull-right">
+
+                                <li>
+                                    <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="skypename"><i class="fa fa-print"></i></a>
+                                </li>
+                                <li>
+                                    <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="email@email.com"><i class="fa fa-envelope-o"></i></a>
+                                </li>
+                            </ul>
+                        </div> <!-- panel-body -->
+                       
+                    </div>
+                    <hr />
+                </div>
+            @*THE PAGES*@
+
+                @foreach (var score in CandidatesResults.scoredetails)
+                {
+
+                                <div class="col-sm-12 m-t-40">
+                                    <div class="page">
+                                  
+                                     
+                                        <div class="panel-body user-card" style="padding:50px">
+                                            <div class="col-lg-12 text-center">
+                                                <div class="media-main pull-left">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="thumb-lg img-responsive" src="~/Content/Img/lifetools.png" alt="" style="height:50px">
+                                                    </a>
+                                                </div>
+                                                <div class="media-main pull-right">
+
+                                                    <div class="info">
+                                                        <h4>@CandidatesResults.accounts[0].candidate</h4>
+                                                        <p class="text-muted">@CandidatesResults.accounts[0].email</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 text-center">
+
+                                                    <div class="page-title text-center col-lg-6 col-lg-offset-3">
+                                                        <h3>@score.title</h3>
+                                                        <h4>@score.score/32 (@score.scorelevel)</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 pull-left">
+                                                    <div class="panel panel-border panel-primary">
+                                                        <div class="panel-body">
+                                                                <canvas id=p@(score.classid) height="100"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                <hr />
+                                                <div class="clearfix m-t-40" style="padding:50px">
+                                                    <hr />
+                                                    <span style="margin-top:-20px">@(new HtmlString(CandidatesResults.contents.Where(d => d.name == "D Page").Select(s => s.text).FirstOrDefault()))</span>
+                                                </div>
+                                                <hr />
+                                                <ul class="social-links list-inline m-b-40 pull-right">
+                                                    <li>
+                                                        <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="skypename"><i class="fa fa-print"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="email@email.com"><i class="fa fa-envelope-o"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div> <!-- panel-body -->
+                                    </div>
+                                    <hr />
+                                </div>
+
+                }
+
+            </div> <!-- end row -->
+
+        </div>
+    </div>
+</div>
+

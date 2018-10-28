@@ -1,0 +1,87 @@
+﻿@model IEnumerable<lifetoolsinc.Models.Promoters>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-body bg-white">
+    <p>
+        @*@Html.ActionLink("Buy Codes", "Create",new { @class="btn btn-info"})*@
+
+    </p>
+    <div class="col-xs-12 pull-right">
+        <div class="pull-left">
+            <h3 class="text-warning">Promo Codes</h3>
+
+        </div>
+        <div class="pull-right">
+            <ul class="social-links list-inline pull-right" style="height:15px">
+                <li>
+                    <a href="@Url.Action("Create", "Promoters")" title="Add Attribute" data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Details"><i class="fa fa-plus"></i></a>
+
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- /.modal -->
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.promoter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.startdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.expiredate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.promoter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.startdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.expiredate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+

@@ -1,0 +1,170 @@
+﻿@model IEnumerable<lifetoolsinc.Models.CandidatesResults>
+@using lifetoolsinc.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutResult.cshtml";
+}
+
+<!--Morris Chart CSS -->
+<link rel="stylesheet" href="~/assets/plugins/morris/morris.css">
+<!--Morris Chart CSS -->
+<link rel="stylesheet" href="assets/plugins/morris/morris.css">
+
+<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="~/assets/css/icons.css" rel="stylesheet" type="text/css">
+<link href="~/assets/css/style.css" rel="stylesheet" type="text/css">
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="col-lg-10 m-t-20 col-lg-offset-1">
+                    @Html.Partial("_Page1")
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!--Morris Chart-->
+<script src="~/assets/plugins/morris/morris.min.js"></script>
+<!--Morris Chart-->
+<script src="~/assets/plugins/morris/morris.min.js"></script>
+<script src="~/assets/plugins/raphael/raphael-min.js"></script>
+<script src="~/assets/pages/morris.init.js"></script>
+
+<!--Morris Chart CSS -->
+<link rel="stylesheet" href="~/assets/plugins/morris/morris.css">
+
+<!-- Chart JS -->
+<script src="~/assets/plugins/chart.js/chart.min.js"></script>
+<script src="~/assets/pages/chartjs.init.js"></script>
+
+
+@section scripts{
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load("current", {packages:['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+      var v0=32;
+      var p1=(@CandidatesResults.scoredetails[0].score);
+      var p2=(@CandidatesResults.scoredetails[1].score);
+      var p3=(@CandidatesResults.scoredetails[2].score);
+      var p4=(@CandidatesResults.scoredetails[3].score);
+
+      var v1=@CandidatesResults.scoredetails[0].score;
+      var v2=@CandidatesResults.scoredetails[1].score;
+      var v3=@CandidatesResults.scoredetails[2].score;
+      var v4=@CandidatesResults.scoredetails[3].score;
+
+
+      var c1='@CandidatesResults.scoredetails[0].color';
+      var c2='@CandidatesResults.scoredetails[1].color';
+      var c3='@CandidatesResults.scoredetails[2].color';
+      var c4='@CandidatesResults.scoredetails[3].color';
+
+      var scolor = function (v) {
+          if (v == 'Red') { return '#f20d0d' }
+          if (v == 'Yellow') { return '#f2f20d' }
+          if (v == 'Green') { return '#5cb45b' }
+      };
+
+
+    var data = google.visualization.arrayToDataTable([
+      ["Element", "Density", { role: "style" } ],
+      ["D Style", p1, scolor(c1)],
+      ["I Style", p2, scolor(c2)],
+      ["S Style", p3, scolor(c3)],
+      ["C Style", p4, scolor(c4)],
+
+    ]);
+
+    var view = new google.visualization.DataView(data);
+
+    view.setColumns([0, 1,
+                     { calc: "stringify",
+                       sourceColumn: 1,
+                       type: "string",
+                       role: "annotation" },2]);
+
+    var gridlines = ['#fff'];
+    var options = {
+      title: "Natural Behavior Style Graph",
+      width: 600,
+      height: 700,
+      bar: {groupWidth: "65%"},
+      legend: { position: "none" },
+
+      vAxis: {
+            viewWindowMode:'explicit',
+            viewWindow: {
+              max:32,
+              min:0,
+            },
+            
+            ticks: [{v: 0, f: 0},{v: 2, f: 2},{v: 4, f: 4},{v: 6, f: 6},{v: 8, f: 8},{v: 10, f: 10},{v: 12, f: 12},{v: 14, f: 14},{v: 16, f: 16},{v: 18, f: 'LOW'}, 
+                {v: 20, f: 20},{v: 22, f: 22},{v: 24, f: 'MID'},{v: 26, f: 26},{v: 28, f: 28},{v: 30, f: 30},{v: 32, f: 'HIGH'}],
+            //gridlines: [{color: "#00FF00"},{color: "#00FF00"},{color: "#00FF00"}]
+      },
+   
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+    chart.draw(view, options);
+
+    var data = google.visualization.arrayToDataTable([
+  ['Task', 'Natural Behavior Style Graph'],
+  ['D Style',     p1*32],
+  ['I Style',      p2*32],
+  ['S Style',  p3*32],
+  ['C Style', p4*32],
+
+  ]);
+
+    var options = {
+      title: '',
+      slices: {
+          0: { color: scolor(c1) },
+          1: { color: scolor(c2) },
+          2: { color: scolor(c3) },
+          3: { color: scolor(c4) }
+      },
+      pieSliceTextStyle: {
+          color: 'black'
+      }
+  };
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+
+
+
+      chart.draw(data, options);
+
+      ///-----------------------------------
+
+
+}
+
+
+
+</script>
+
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+}
+

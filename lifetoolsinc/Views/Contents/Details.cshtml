@@ -1,0 +1,21 @@
+﻿@model lifetoolsinc.Models.Contents
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contents</h4>
+    <hr />
+<div>
+    <span style="margin-top:-20px">@(new HtmlString(@Model.text))</span>
+    
+</div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Cancel", "Index")
+</p>

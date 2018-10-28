@@ -1,0 +1,66 @@
+﻿@model lifetoolsinc.Models.AttClasses
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layoutassmt.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>AttClasses</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+        
+            <div class="col-md-10">
+                Text
+                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+     
+            <div class="col-md-10">
+                Class Category ID
+                @Html.EditorFor(model => model.ClassCategoryID, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                @Html.ValidationMessageFor(model => model.ClassCategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+         
+            <div class="col-md-10">
+                Score
+                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+         
+            <div class="col-md-10">
+                Score Level
+                @Html.EditorFor(model => model.ScoreLevel, new { htmlAttributes = new { @class = "form-control text-dark" } })
+                @Html.ValidationMessageFor(model => model.ScoreLevel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class=" col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Cancel", "Index")
+</div>

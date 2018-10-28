@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNet.Identity;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>LifeToolsInc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="ThemeDesign" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!-- Sweet Alert -->
+    <link href="~/assets/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css">
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+
+    <!-- Begin page -->
+    <div class="accountbg"></div>
+    <div class="wrapper-page">
+        <div class="panel panel-color panel-primary panel-pages">
+            <div class="user-info m-t-10">
+                <div class="text-center">
+                    <img src="~/Content/Img/lifetools.png" alt="" class="icon-main1 icon-demo-content1" style="height:100px">
+
+                </div>
+            </div>
+            <div class="panel-body">
+       
+
+             
+                @RenderBody()
+
+                <div class="panel-footer text-center m-t-30">
+                   
+                    @*<a>@User.Identity.IsAuthenticated</a>*@
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+
+                                @Html.AntiForgeryToken()
+
+                                <a class="btn text-danger" href="javascript:document.getElementById('logoutForm').submit()" data-original-title="Exit"><i class="mdi mdi-power mdi-36px"></i><p>Exit</p></a>
+
+                            }
+                        }
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- jQuery  -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/modernizr.min.js"></script>
+    <script src="~/assets/js/detect.js"></script>
+    <script src="~/assets/js/fastclick.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/jquery.blockUI.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/wow.min.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- Sweet-Alert  -->
+    <script src="~/assets/plugins/bootstrap-sweetalert/sweet-alert.min.js"></script>
+    <script src="~/assets/pages/sweet-alert.init.js"></script>
+
+    <script src="~/assets/js/app.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
